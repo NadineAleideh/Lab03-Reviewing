@@ -28,7 +28,7 @@ After writing the code, In the Main class do the following:
   1. Initialize numbers as shown.
   2. Call MaxValueInArray(numbers) within the Initialize maxvalue as shown.
 
-![run](./Lab03-review/assets/challenge5acall.PNG)
+![run](./Lab03-review/assets/challenge5howtorun.PNG)
 
 ### Unit Testing 
 
