@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab03-review", "Lab03-revie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "..\TestProject1\TestProject1.csproj", "{BAB60FDA-81D9-4CC6-8DC7-3150A5667793}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "asset", "asset", "{4875AA59-B7C2-4824-BF41-A78062FEDD40}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\Dell\Downloads\Lab03Challenges5.jpg = C:\Users\Dell\Downloads\Lab03Challenges5.jpg
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
