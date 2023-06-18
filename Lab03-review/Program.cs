@@ -1,4 +1,6 @@
-﻿namespace Lab03_review
+﻿using System;
+
+namespace Lab03_review
 {
     public class Program
     {
@@ -7,64 +9,72 @@
             try
             {
 
-                //Challenge 1 begin 
-                Console.WriteLine("------------------------------------------------ Challenge 1 ------------------------------------------------");
-                Console.Write("Please enter 3 numbers and make sure to insert a space between each of them: ");
-                string? str = Console.ReadLine();
-                int Product = ProbuctOf3Nums(str!);
-                Console.WriteLine($"The product of these 3 numbers is: {Product}\n\n");
-                //Challenge 1 ends 
+                ////Challenge 1 begin 
+                //Console.WriteLine("------------------------------------------------ Challenge 1 ------------------------------------------------");
+                //Console.Write("Please enter 3 numbers and make sure to insert a space between each of them: ");
+                //string? str = Console.ReadLine();
+                //int Product = ProbuctOf3Nums(str!);
+                //Console.WriteLine($"The product of these 3 numbers is: {Product}\n\n");
+                ////Challenge 1 ends 
 
 
-                //Challenge 2 begin
-                Console.WriteLine("------------------------------------------------ Challenge 2 ------------------------------------------------");
-                int size;
-                int[] num = PopulateAvgOfRandomSetOfNums(out size);
-                double avg = AvgOfRandomSetOfNums(num);
-                Console.WriteLine($"The average of these {size} numbers is: {avg}");
-                //Challenge 2 ends
+                ////Challenge 2 begin
+                //Console.WriteLine("------------------------------------------------ Challenge 2 ------------------------------------------------");
+                //int size;
+                //int[] num = PopulateAvgOfRandomSetOfNums(out size);
+                //double avg = AvgOfRandomSetOfNums(num);
+                //Console.WriteLine($"The average of these {size} numbers is: {avg}");
+                ////Challenge 2 ends
 
-                //Challenge 3 begin
-                Console.WriteLine("------------------------------------------------ Challenge 3 ------------------------------------------------\n");
-                DisplayShape(9);
-                //Challenge 3 ends
+                ////Challenge 3 begin
+                //Console.WriteLine("------------------------------------------------ Challenge 3 ------------------------------------------------\n");
+                //DisplayShape(9);
+                ////Challenge 3 ends
 
-                //Challenge 4 begin
-                Console.WriteLine("------------------------------------------------ Challenge 4 ------------------------------------------------\n");
-                //int[] numbers = { 1, 1, 2, 2, 3, 3, 3, 1, 1, 5, 5, 6, 7, 8, 2, 1, 1 };
-                Console.Write("Please enter array elements you want to find most appears element: ");
-                string? arr = Console.ReadLine()!;
-                string[] arrElements = arr.Split(' ');
+                ////Challenge 4 begin
+                //Console.WriteLine("------------------------------------------------ Challenge 4 ------------------------------------------------\n");
+                ////int[] numbers = { 1, 1, 2, 2, 3, 3, 3, 1, 1, 5, 5, 6, 7, 8, 2, 1, 1 };
+                //Console.Write("Please enter array elements you want to find most appears element: ");
+                //string? arr = Console.ReadLine()!;
+                //string[] arrElements = arr.Split(' ');
 
-                int[] ints = new int[arrElements.Length];
+                //int[] ints = new int[arrElements.Length];
 
-                for (int i = 0; i < arrElements.Length; i++)
-                {
-                    int.TryParse(arrElements[i], out ints[i]);
+                //for (int i = 0; i < arrElements.Length; i++)
+                //{
+                //    int.TryParse(arrElements[i], out ints[i]);
 
-                }
-                int MostAppearsNumber = MostAppearsNumberInArray(ints);
-                Console.WriteLine($"Most Appears Number In This Array is {MostAppearsNumber}");
-                //Challenge 4 ends
+                //}
+                //int MostAppearsNumber = MostAppearsNumberInArray(ints);
+                //Console.WriteLine($"Most Appears Number In This Array is {MostAppearsNumber}");
+                ////Challenge 4 ends
 
-                //Challenge 5 begin
+                ////Challenge 5 begin
+                //Console.WriteLine("------------------------------------------------ Challenge 5 ------------------------------------------------\n");
+                ////int[] numbers = { 5, 25, 99, 123, 78, 96, 555, 108, 4 };
+                //Console.Write("Please enter array elements you want to find max value element: ");
+                //string? arr2 = Console.ReadLine()!;
+                //if (arr2.Length < 1) throw new Exception("The array cannot be null!");
+                //string[] arrElements2 = arr2.Split(' ');
+
+                //int[] ints2 = new int[arrElements2.Length];
+
+                //for (int i = 0; i < arrElements2.Length; i++)
+                //{
+                //    int.TryParse(arrElements2[i], out ints2[i]);
+
+                //}
+                //int maxValue = MaxValueInArray(ints2);
+                //Console.WriteLine(maxValue);
+                ////Challenge 5 ends
+
+                //Challenge 9 begin 
                 Console.WriteLine("------------------------------------------------ Challenge 5 ------------------------------------------------\n");
-                //int[] numbers = { 5, 25, 99, 123, 78, 96, 555, 108, 4 };
-                Console.Write("Please enter array elements you want to find max value element: ");
-                string? arr2 = Console.ReadLine()!;
-                if (arr2.Length < 1) throw new Exception("The array cannot be null!");
-                string[] arrElements2 = arr2.Split(' ');
-
-                int[] ints2 = new int[arrElements2.Length];
-
-                for (int i = 0; i < arrElements2.Length; i++)
-                {
-                    int.TryParse(arrElements2[i], out ints2[i]);
-
-                }
-                int maxValue = MaxValueInArray(ints2);
-                Console.WriteLine(maxValue);
-                //Challenge 5 ends
+                Console.WriteLine("Please enter a sentence:");
+                string ? sentence = Console.ReadLine()!;
+                string[] ? wordsLengths = SentenceWordsLengths(sentence)!;
+                Console.WriteLine(string.Join(", ", wordsLengths));
+                //Challenge 9 ends
             }
 
             catch (Exception ex)
@@ -248,5 +258,23 @@
             }
             return max;
         }
+
+        //Challenge 9
+        public static string[] SentenceWordsLengths(string sentence)
+        {
+            if (sentence.Length == 0) throw new Exception("Input cannot be null");
+            string[] sentenceWords = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] wordLengths = new string[sentenceWords.Length];
+
+            for (int i = 0; i < sentenceWords.Length; i++)
+            {
+                string word = sentenceWords[i];
+                int length = word.Length;
+                wordLengths[i] = $"{word}: {length}";
+            }
+
+            return wordLengths;
+        }
+
     }
 }

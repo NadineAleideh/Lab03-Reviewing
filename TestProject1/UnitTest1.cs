@@ -44,7 +44,7 @@ namespace TestProject1
             Assert.Equal(expectedMostAppearsNumber, MostAppearsNumber);
         }
 
-        //Challenge 4
+        //Challenge 5
 
         [Theory]
         [InlineData(new[] { 5, 25, 99, 123, 78, 96, 555, 108, 4 }, 555)]
@@ -61,11 +61,33 @@ namespace TestProject1
         [Fact]
         public void MaxValueInArray_ThrowsException_WhenArrayIsEmpty()
         {
-            // Arrange
             int[] numbers = new int[0];
 
-            // Act and Assert
             Assert.Throws<Exception>(() => Program.MaxValueInArray(numbers));
+        }
+
+        //Challenge 9
+        [Theory]
+        [InlineData("This is a sentence about important things", new string[] { "This: 4", "is: 2", "a: 1", "sentence: 8", "about: 5", "important: 9", "things: 6" })]
+        [InlineData("Hello World", new string[] { "Hello: 5", "World: 5" })]
+        [InlineData("Nadine is 23 years old !", new string[] { "Nadine: 6", "is: 2", "23: 2", "years: 5", "old: 3", "!: 1" })]
+        public void GetWordLengthsValid_Test(string sentence, string[] expectedOutput)
+        {
+            // Act
+            string[] output = Program.SentenceWordsLengths(sentence);
+
+            // Assert
+            Assert.Equal(expectedOutput, output);
+        }
+
+        [Fact]
+        public void GetWordLengths_ReturnsArray()
+        {
+            string sentence = "Hello World";
+            string[] output = Program.SentenceWordsLengths(sentence);
+
+            Assert.NotNull(output);
+            Assert.NotEmpty(output);
         }
     }
 }
