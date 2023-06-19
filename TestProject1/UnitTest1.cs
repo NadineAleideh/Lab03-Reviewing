@@ -73,10 +73,8 @@ namespace TestProject1
         [InlineData("Nadine is 23 years old !", new string[] { "Nadine: 6", "is: 2", "23: 2", "years: 5", "old: 3", "!: 1" })]
         public void GetWordLengthsValid_Test(string sentence, string[] expectedOutput)
         {
-            // Act
             string[] output = Program.SentenceWordsLengths(sentence);
 
-            // Assert
             Assert.Equal(expectedOutput, output);
         }
 
@@ -88,6 +86,14 @@ namespace TestProject1
 
             Assert.NotNull(output);
             Assert.NotEmpty(output);
+        }
+
+        [Fact]
+        public void GetWordLengths_ThrowsException_WhenArrayIsEmpty()
+        {
+            string sentence = "";
+
+            Assert.Throws<Exception>(() => Program.SentenceWordsLengths(sentence));
         }
     }
 }
